@@ -9,6 +9,7 @@ import (
 type strfunc func(string) string
 
 //user created function with type of 'strfunc'
+//Pay attention how 'strfunc' is used in front of the definition and function body encapsulated in parentheses.
 var upper strfunc = strfunc(func(input string) string {
 	return strings.ToUpper(input)
 })
