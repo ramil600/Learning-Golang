@@ -16,7 +16,7 @@ func main() {
 
 	queue := make([]interface{}, 0, 10)
  //We create NewCond with sync.Mutex struct to control the length of the queue
-  c := sync.NewCond(&sync.Mutex{})
+  	c := sync.NewCond(&sync.Mutex{})
 
 	removeq := func(){
 		c.L.Lock()
