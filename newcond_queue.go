@@ -15,9 +15,10 @@ import (
 func main() {
 
 	queue := make([]interface{}, 0, 10)
- //We create NewCond with sync.Mutex struct to control the length of the queue
+	
+        //We create NewCond with sync.Mutex struct to control the length of the queue
   	c := sync.NewCond(&sync.Mutex{})
-
+	
 	removeq := func(){
 		c.L.Lock()
 		
@@ -25,13 +26,10 @@ func main() {
 		fmt.Println("Removing one from queue")
 		c.L.Unlock()
 		c.Signal()
-	
 	}
-
 	for i:=0; i <10; i++{
-
-
 		c.L.Lock()
+		
       //if we reach code where the length is 2, element needs to be removed before we proceed
       //we then have two wait in the loop suspended, this avoids loading on CPU
       //when removeq signals us, when element removed, we can then proceed with adding onother element
@@ -44,6 +42,5 @@ func main() {
 		go removeq()
 
 		c.L.Unlock()
-
 	}
 }
