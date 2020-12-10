@@ -10,6 +10,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 func main() {
@@ -20,6 +21,7 @@ func main() {
   	c := sync.NewCond(&sync.Mutex{})
 	
 	removeq := func(){
+		time.Sleep(time.Second)
 		c.L.Lock()
 		queue = queue[1:]
 		fmt.Println("Removing one from queue")
