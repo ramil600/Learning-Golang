@@ -21,18 +21,18 @@ func main() {
 	
 	removeq := func(){
 		c.L.Lock()
-		
 		queue = queue[1:]
 		fmt.Println("Removing one from queue")
 		c.L.Unlock()
 		c.Signal()
 	}
+	
 	for i:=0; i <10; i++{
 		c.L.Lock()
 		
-      //if we reach code where the length is 2, element needs to be removed before we proceed
-      //we then have two wait in the loop suspended, this avoids loading on CPU
-      //when removeq signals us, when element removed, we can then proceed with adding onother element
+               //if we reach code where the length is 2, element needs to be removed before we proceed
+               //we then have two wait in the loop suspended, this avoids loading on CPU
+               //when removeq signals us, when element removed, we can then proceed with adding onother element
 		for len(queue) == 2 {
 			c.Wait()
 		}
