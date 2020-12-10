@@ -32,7 +32,7 @@ func main() {
 		
                 //if we reach code where the length is 2, element needs to be removed before we proceed
 	        //we then wait in the loop suspended, L lock is released, this avoids loading on CPU. When removeq 
-                // signals that element removed, we can then restore L lock, proceed with adding onother element
+                //signals that element removed, we can then restore L lock, proceed with adding onother element
 		for len(queue) == 2 {
 			c.Wait()
 		}
