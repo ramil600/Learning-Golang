@@ -43,6 +43,7 @@ func main() {
 				case <-channels[1]:
 					fmt.Println("Read from channel 1")
 				case <-or(append(channels[2:], done)...):
+					fmt.Println("Recursive or function")
 
 				}
 
