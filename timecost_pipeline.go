@@ -58,7 +58,7 @@ func main() {
 
   	inputs := generator(1, 2, 3, 4)
 
-  	//avoid leaking of goroutine, close the channel when main func exits
+  	//avoid leakage of goroutines, close the channel when main func exits
 	done := make(chan interface{})
 	defer close(done)
 
