@@ -16,11 +16,12 @@ func main() {
 		go func() {
 			defer close(out)
 			for i := range integers {
+				time.Sleep(3 * time.Millisecond)
 				select {
 				case <-done:
 					return
 				case out <- i * mult:
-					time.Sleep(3 * time.Millisecond)
+					
 				}
 			}
 		}()
@@ -33,11 +34,12 @@ func main() {
 		go func() {
 			defer close(out)
 			for i := range integers {
+				time.Sleep(4 * time.Millisecond)
 				select {
 				case <-done:
 					return
 				case out <- i + add:
-					time.Sleep(4 * time.Millisecond)
+					
 				}
 			}
 		}()
@@ -71,6 +73,6 @@ func main() {
 	//calculate time since the start of the pipeline
   	dur := time.Since(start)
   
-  	//total time cost of our pipeline is only the total cost of 16ms, more efficient that sequential cost of 40ms
+  	//total time cost of our pipeline is only the total cost of 22ms, more efficient that sequential cost of 40ms
 	fmt.Println("Total cost of operation is: ", dur.Milliseconds(), "milliseconds.")
 }
