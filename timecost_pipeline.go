@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-
+	
 	start := time.Now()
 
 	//this is the stage of the pipeline closes  out channel when exits, triggers the functions down the
