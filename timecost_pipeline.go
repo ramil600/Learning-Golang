@@ -1,5 +1,8 @@
-package main
+// total execution time of some time-costly functions in pipeline
+// 22ms total time for add:4ms and multiply:3ms operations executed in pipeline
+// 40ms for sequential operations
 
+package main
 import (
 	"fmt"
 	"time"
