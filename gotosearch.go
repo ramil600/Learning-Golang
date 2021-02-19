@@ -36,9 +36,6 @@ func main() {
 	
 	// Function visits all the siblings that have the prereq parent
 	VisitAll = func(v []string) {
-		
-		// Sort all the siblings so that we have alphabetical order
-		sort.Strings(v)
 		for _, elem := range v {
 			// If we haven't put the course in the list first use recursion to check if some courses 
 			if !seen[elem] {
@@ -56,7 +53,8 @@ func main() {
 	for i := range prereqs {
 		keys = append(keys, i)
 	}
-
+	// Sort all the siblings so that we have alphabetical order
+	sort.Strings(keys)
 	VisitAll(keys)
 	
 	// Print out the results
