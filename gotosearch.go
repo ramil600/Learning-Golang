@@ -1,5 +1,4 @@
 //Program sorts CS courses starting with ones that do not have any prereqs
-
 package main
 
 import (
@@ -41,22 +40,21 @@ func main() {
 		// Sort all the siblings so that we have alphabetical order
 		sort.Strings(v)
 		for _, elem := range v {
-			// if we haven't put the course in the list first use recursion to check if some courses 
+			// If we haven't put the course in the list first use recursion to check if some courses 
 			if !seen[elem] {
 				seen[elem] = true
 				VisitAll(prereqs[elem])
-				//once we fell through all the prereqs and came back add the course to the ordered slice 
+				// Once we fell through all the prereqs and came back add the course to the ordered slice 
 				order = append(order, elem)
 			}
 
 		}
 
 	}
-	// append the keys into the slice of strings 
+	// Append the keys into the slice of strings 
 	var keys []string
 	for i := range prereqs {
 		keys = append(keys, i)
-
 	}
 
 	VisitAll(keys)
@@ -65,5 +63,4 @@ func main() {
 	for i,j := range order{
 		fmt.Println(i, " ", j)
 	}
-
 }
