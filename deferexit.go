@@ -9,18 +9,18 @@ import (
 )
 
 func slowoperation() {
-  defer func() func() {
+  	defer func() func() {
 		start := time.Now()
-    // Executed when function slowoperation starts
+    	// Executed when function slowoperation starts
 		fmt.Println("Started at",start)
 		return func() {
-      // Return function will be deferred until slowoperation is done.
+      	// Return function will be deferred until slowoperation is done.
 			fmt.Println("Finished after", time.Since(start))
 		}
   // Pay attention to 2 sets of paranthesis. Return function call will be deferred, if we put only one set, return function will never be called.	
   }()()
   // Imitating some slow job
-	time.Sleep(5 * time.Second)
+  time.Sleep(5 * time.Second)
 
 }
 
