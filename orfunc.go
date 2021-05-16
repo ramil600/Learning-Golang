@@ -1,4 +1,6 @@
-//This creates or channel that returns when any of the channels return a value
+// This program demonstrates the "OR" func which takes several channels(works) that takes different time to complete..
+// and returns channel(unblocks) from the fastest task.
+// We simulate task with help of sig func, that will unblock after certain delay
 
 
 package main
