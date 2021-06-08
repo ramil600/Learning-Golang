@@ -45,6 +45,9 @@ func main() {
 	var parent Parent
 	for k, v := range mymap {
 
+	//A type switch is a construct that permits several type assertions in series.
+	//A type switch is like a regular switch statement, but the cases in a type switch specify types (not values).. 
+	//And those values are compared against the type of the value held by the given interface value.
 		switch vv := v.(type) {
 		case float64:
 			fmt.Println(k, "is a float64 with value of ", vv)
@@ -54,6 +57,7 @@ func main() {
 			for i, j := range vv {
 				fmt.Println(i, "is member of array with value of", j)
 			}
+		//Incase type is a map[string]interface {}  unmarshall it to Parent struct
 		case map[string]interface{}:
 			jstr, _ := json.Marshal(v)
 			json.Unmarshal(jstr, &parent)
