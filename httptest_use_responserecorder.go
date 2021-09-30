@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"net/http/httptest"	
 	"io"
-  "io/ioutil"
+	"io/ioutil"
 
 )
 
@@ -18,10 +18,8 @@ func main() {
     var jsonStr = `{"title":"Buy cheese and bread for breakfast."}`
 
     w := httptest.NewRecorder()
-
     w.Header().Set("X-Custom-Header", "myvalue")
     w.Header().Set("Content-Type", "application/json") 
-
     io.WriteString(w, jsonStr)
 
     resp := w.Result()
