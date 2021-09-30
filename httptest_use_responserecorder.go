@@ -1,4 +1,4 @@
-// This program uses httptest package to create pseudo response with json body for any testing purposes
+// This program uses httptest package to create pseudo response with JSON object for various testing purposes.
 // jsonStr is string representation of JSON object. We create  htttptest.ResponseRecorder and write jsonStr into it
 // In order to create pseudo response we use ResponseRecorder#Result() function
 // After this is plain handling of response Body / Status / Headers.
